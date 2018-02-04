@@ -29,6 +29,7 @@ Note:
 ```bash
 docker run \
 -v $PWD/app:/root/.ssh/ \
+-v $PWD/app/generated-docs:/root/streisand/generated-docs/ \
 -p 80:8080 \
 --name streisand \
 -it --rm researchranks/debian.ansible.streisand:latest /bin/sh
@@ -52,5 +53,4 @@ docker run \
 ### How To Access the Generated VPN Profiles ###
 
  - ``/app/generated-docs/vpn.profiles``
-
 
