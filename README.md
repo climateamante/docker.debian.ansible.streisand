@@ -1,14 +1,6 @@
-# Dockerfile for streisand
-
-
-You can use the docker-hub automated build (Easy Mode), or build the image yourself
-### Easy Mode
-```
-mkdir generated-docs
-sudo docker run -v generated-docs:/root/streisand/generated-docs/ -it gdoteof/streisand
-```
-
-Sets up a container running https://github.com/jlund/streisand, meant for deploying on remote servers via API
+# Dockerfile: Streisand 
+	> OS: Debian 
+	> Setup With Ansible
 
 ## Confirmed Working
 
@@ -24,21 +16,15 @@ Sets up a container running https://github.com/jlund/streisand, meant for deploy
 - [ ] Rackspace
 
 
-```
-git clone https://github.com/gdoteof/docker-streisand.git
-
-cd docker-streisand
-
-docker build -t streisand .
-docker run -i -t --name streisand streisand
-```
-
 This will prompt you to enter your API credentials
 
-After it's finished, streisand will try and xdg-open the generated documentation (which will fail).
+After it's finished, Streisand will try and xdg-open the generated documentation (which will fail).
 
-Note that the name of the html file will be the same as the name you gave in the server setup. If you name your server `streisand-demo`, then the file will be `streisand-demo.html`.
+Note:
+> The name of the html file will be the same as the name you gave in the server setup. If you name your server `streisand-demo`, then the file will be `streisand-demo.html`.
 
+
+### How To Run The Docker Setup ###
 
 ```bash
 docker run \
@@ -48,9 +34,13 @@ docker run \
 -it --rm researchranks/debian.ansible.streisand:latest /bin/sh
 ```
 
-### How to setup the VPN accounts ###
+### How Add Secure RSA Keys Before Running Setup ###
 
- - copy the id_rsa key from 
+ - copy ``id_rsa`` keys the ``/app/`` docker project directory
+
+
+### How To Run the Streisand Setup ###
+
  - root working directory
      - `cd ~/streisand`
 
@@ -58,6 +48,9 @@ docker run \
 ./streisand
 ```
 
-### How to access the generated vpn profiles ###
+
+### How To Access the Generated VPN Profiles ###
+
+ - ``/app/generated-docs/vpn.profiles``
 
 
