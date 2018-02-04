@@ -1,0 +1,31 @@
+# docker-enginge: 17.06.0+
+# docker-compose.yml preferes spaces over tabs
+
+version: '3.3'
+
+services:
+
+  streisand.app:
+    container_name: debian.ansible.streisand
+    volumes:
+        - ./app:/root/.ssh/
+    build:
+        labels:
+            debian.ansible.streisand.app.description: "template for boilerplate"
+        
+        context: ./
+        dockerfile: ./dockerfiles/debian.ansible.streisand.dockerfile.sh
+        
+    command: "./streisand"
+    
+    # equivilent of docker run -it
+    # stdin_open: true
+    # tty: true
+
+    image: researchranks/debian.ansible.streisand:latest
+
+    expose:
+        - 80
+
+    ports:
+        - 80:8080

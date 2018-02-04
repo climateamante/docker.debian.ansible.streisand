@@ -1,0 +1,18 @@
+# OSX | MAC
+.DS_Store
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# System Settings
+app/known_hosts
+app/id_rsa.pub
+app/id_rsa
+app/linode.docker.api.key
+linode.docker.api.key
+app/generated-docs/*
+
+# NODE | NPM Modules
+app/node_modules
+/node_modules
