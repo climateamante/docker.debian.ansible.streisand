@@ -5,6 +5,10 @@
 ## Confirmed Working
 
 - [x] Linode
+  > 10/18/2019 requires:
+	- `apt upgrade && apt update`
+	- `git clone https://github.com/StreisandEffect/streisand.git`
+ 	- `pip install linode-api4=='2.2.1'`
 
 ## Tested
 
@@ -29,7 +33,6 @@ Note:
 ```bash
 docker run \
 -v $PWD/app:/root/.ssh/ \
--v $PWD/app/generated-docs:/root/streisand/generated-docs/ \
 -p 80:8080 \
 --name streisand \
 -it --rm researchranks/debian.ansible.streisand:latest /bin/sh
@@ -54,3 +57,7 @@ docker run \
 
  - ``/app/generated-docs/vpn.profiles``
 
+
+#### Edge Cases:
+ * Digital Ocean:
+    - remove `@local` from the ssh `id_rsa.pub` key that is uploaded on the `digitalocean` settings. It has been an edgecase with `ansible` and `streisand `
